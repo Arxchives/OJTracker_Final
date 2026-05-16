@@ -50,9 +50,9 @@ onAuthStateChanged(auth, async (user) => {
     const deadline = data.submissionDeadline || null;
 
     if (status === "approved") {
-        window.location.href = "/pages/student/dashboard.html";
+        window.location.href = "../pages/student/dashboard.html";
     } else if (status === "rejected") {
-        window.location.href = "/pages/student/rejected.html";
+        window.location.href = "../pages/student/rejected.html";
     } else if (status === "for_submission") {
         showForSubmissionNotice(deadline);
     }
@@ -60,5 +60,5 @@ onAuthStateChanged(auth, async (user) => {
 
 document.getElementById("logoutBtn").addEventListener("click", async () => {
     await signOut(auth);
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
 });

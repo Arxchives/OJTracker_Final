@@ -86,7 +86,7 @@ onSnapshot(collection(db, "students"), (snapshot) => {
                 <td class="app-date">${date}</td>
                 <td><span class="badge ${badgeClass}">${badgeText}</span></td>
                 <td style="text-align:right;">
-                    <a href="/pages/admin/admin_applicants.html" class="action-btn">View</a>
+                    <a href="../pages/admin/admin_applicants.html" class="action-btn">View</a>
                 </td>
             </tr>
         `;
