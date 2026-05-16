@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFP OJT Portal | Pending Application</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-badge">
+  <img src="/assets/images/BFP.jpg" alt="BFP Logo">
+</div>
+            <span>OJT Portal</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item active" href="/pages/student/pending.html">Application Status</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="logout-btn" id="logoutBtn">
+                Back to Login
+            </button>
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- Header -->
+        <div class="top-header">
+
+            <div>
+                <p class="page-label">Application Status</p>
+                <h1 class="page-title">Pending Review</h1>
+            </div>
+
+        </div>
+
+        <!-- STATUS CARD -->
+        <div class="panel" style="max-width:700px;margin:auto;">
+
+            <div class="panel-header">
+                <span class="panel-title">OJT Application</span>
+            </div>
+
+            <div style="padding:1.5rem;">
+
+                <div style="font-size:1.6rem;font-weight:700;" id="statusTitle">
+                    🕐 Under Review
+                </div>
+
+                <p style="color:#6b7280;margin-top:8px;line-height:1.5;">
+                    Your application has been successfully submitted and is currently under review by the Bureau of Fire
+                    Protection – San Simon. Please wait for approval before you can access the full OJT portal features.
+                </p>
+
+                <div style="margin-top:15px;" id="statusBadge">
+                    <span class="badge badge-open">Pending</span>
+                </div>
+
+                <hr style="margin:20px 0;opacity:0.2;">
+
+                <div style="font-size:0.95rem;color:#555;" id="statusNotice">
+                    📌 You will automatically gain access once your application is approved.<br><br>
+                    📋 <strong>Important:</strong> Please submit your original documents in person at the
+                    Bureau of Fire Protection – San Simon office to complete your application.<br><br>
+                    ⏳ Your application will only be processed after your physical documents
+                    have been received and verified by the designated personnel.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- IMPORTANT: status checker -->
+    <script type="module" src="/js/pending.js"></script>
+
+</body>
+
+</html>

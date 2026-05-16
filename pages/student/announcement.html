@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFP OJT Portal | Announcements</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/announcement.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-badge">
+                <img src="/assets/images/BFP.jpg" alt="BFP Logo">
+            </div>
+            <span>OJT Portal</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="/pages/student/dashboard.html">Dashboard</a>
+            <a class="nav-item active" href="/pages/student/announcement.html">Announcements</a>
+            <a class="nav-item" href="/pages/student/calender.html">Calendar &amp; Time</a>
+            <a class="nav-item" href="recommendations.html">My Office</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="logout-btn" id="logoutBtn">← Log out</button>
+        </div>
+    </aside>
+
+    <div id="logoutModal"
+        style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;">
+        <div
+            style="background:white;padding:24px;border-radius:16px;width:320px;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+            <h3 style="margin:0 0 8px;font-family:'Sora',sans-serif;font-size:16px;color:#1f2d3d;">Log out</h3>
+            <p style="margin:0 0 20px;font-size:14px;color:#666;">Are you sure you want to log out?</p>
+            <div style="display:flex;justify-content:flex-end;gap:10px;">
+                <button id="cancelLogout"
+                    style="padding:8px 14px;border-radius:10px;border:none;background:#eee;cursor:pointer;font-weight:600;">Cancel</button>
+                <button id="confirmLogout"
+                    style="padding:8px 14px;border-radius:10px;border:none;background:#1a7f72;color:white;cursor:pointer;font-weight:600;">Log
+                    out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- Header -->
+        <div class="top-header">
+            <div>
+                <p class="page-label">Bulletin Board</p>
+                <h1 class="page-title">Announcements</h1>
+            </div>
+            <div class="header-actions">
+                <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M14 14L18 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <input id="searchInput" class="search-input" type="text" placeholder="Search announcements…" />
+                </div>
+                <button class="check-btn" onclick="window.location='/pages/student/calender.html'">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                        <rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M7 2v3M13 2v3M3 8h14" stroke="currentColor" stroke-width="1.6"
+                            stroke-linecap="round" />
+                    </svg>
+                    Check Schedule
+                </button>
+            </div>
+        </div>
+
+        <!-- Filter chips -->
+        <div class="filter-bar">
+            <button class="chip chip-active" data-filter="all">All</button>
+            <span class="filter-count" id="filterCount"></span>
+        </div>
+
+        <!-- Table panel -->
+        <div class="panel">
+
+            <!-- Empty state -->
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="8" width="44" height="48" rx="5" stroke="var(--gray-300)" stroke-width="2.5" />
+                    <path d="M20 22h24M20 31h20M20 40h14" stroke="var(--gray-300)" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg>
+                <p>No announcements found</p>
+            </div>
+
+            <table id="annTable">
+                <thead>
+                    <tr>
+                        <th class="col-date">Date Posted</th>
+                        <th>Announcement</th>
+                        <th>Office</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="annBody"></tbody>
+            </table>
+        </div>
+
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <aside class="detail-drawer" id="detailDrawer">
+            <div class="drawer-header">
+                <div>
+                    <span class="drawer-label" id="drawerOffice"></span>
+                    <h2 class="drawer-title" id="drawerTitle"></h2>
+                </div>
+                <button class="drawer-close" id="drawerClose" aria-label="Close">
+                    <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                        <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="drawer-meta">
+                <div class="meta-item">
+                    <span class="meta-key">Date Posted</span>
+                    <span class="meta-val" id="drawerDate"></span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-key">Deadline</span>
+                    <span class="meta-val" id="drawerDeadline"></span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-key">Status</span>
+                    <span id="drawerBadge"></span>
+                </div>
+            </div>
+            <div class="drawer-body" id="drawerBody"></div>
+        </aside>
+
+    </main>
+
+    <script type="module" src="/js/announcements.js"></script>
+
+    <script>
+        // ── Filter chips ──────────────────────────────────────────────
+        const chips = document.querySelectorAll('.chip');
+        const searchInput = document.getElementById('searchInput');
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('chip-active'));
+                chip.classList.add('chip-active');
+                currentFilter = chip.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            currentSearch = searchInput.value.toLowerCase();
+            applyFilters();
+        });
+
+        function applyFilters() {
+            const rows = document.querySelectorAll('#annBody tr');
+            let visible = 0;
+            rows.forEach(row => {
+                const badgeEl = row.querySelector('.badge');
+                const badgeType = badgeEl ? badgeEl.dataset.type : '';
+                const text = row.textContent.toLowerCase();
+                const matchFilter = currentFilter === 'all' || badgeType === currentFilter;
+                const matchSearch = !currentSearch || text.includes(currentSearch);
+                const show = matchFilter && matchSearch;
+                row.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+            document.getElementById('filterCount').textContent = `${visible} announcement${visible !== 1 ? 's' : ''}`;
+            document.getElementById('emptyState').style.display = visible === 0 ? 'flex' : 'none';
+            document.getElementById('annTable').style.display = visible === 0 ? 'none' : '';
+        }
+
+        const drawer = document.getElementById('detailDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+        const drawerClose = document.getElementById('drawerClose');
+
+        function openDrawer(data) {
+            document.getElementById('drawerOffice').textContent = data.office;
+            document.getElementById('drawerTitle').textContent = data.title;
+            document.getElementById('drawerDate').textContent = data.date;
+            document.getElementById('drawerDeadline').textContent = data.deadline || '—';
+            document.getElementById('drawerBadge').innerHTML = `<span class="badge badge-${data.badgeType}" data-type="${data.badgeType}">${data.badgeLabel}</span>`;
+            document.getElementById('drawerBody').textContent = data.body || 'No additional details available.';
+            drawer.classList.add('open');
+            overlay.classList.add('open');
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('open');
+        }
+
+        drawerClose.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+        window.wireRows = function () {
+            document.querySelectorAll('#annBody tr').forEach(row => {
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', () => {
+                    const cells = row.querySelectorAll('td');
+                    const badgeEl = row.querySelector('.badge');
+                    openDrawer({
+                        date: cells[0]?.textContent,
+                        title: cells[1]?.textContent,
+                        office: cells[2]?.textContent,
+                        deadline: cells[3]?.textContent,
+                        badgeType: badgeEl?.dataset.type || '',
+                        badgeLabel: badgeEl?.textContent || '',
+                        body: row.dataset.body || ''
+                    });
+                });
+            });
+            applyFilters();
+        };
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            document.getElementById('logoutModal').style.display = 'flex';
+        });
+        document.getElementById('cancelLogout').addEventListener('click', () => {
+            document.getElementById('logoutModal').style.display = 'none';
+        });
+        document.getElementById('confirmLogout').addEventListener('click', () => {
+            window.location.href = '/index.html';
+        });
+    </script>
+
+</body>
+
+</html>
