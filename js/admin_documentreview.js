@@ -300,7 +300,7 @@ window.markForSubmission = async function (id) {
 };
 
 window.openReview = function (id) {
-    window.location.href = `/pages/admin/admin_student_review.html?id=${id}`;
+    window.location.href = `../pages/admin/admin_student_review.html?id=${id}`;
 };
 
 document.querySelector(".logout-btn")?.addEventListener("click", () => {

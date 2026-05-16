@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             showToast(`Deadline set: ${deadline}`);
             await new Promise(r => setTimeout(r, 1200));
-            window.location.href = "../../pages/admin/admin_documentreview.html";
+            window.location.href = "../pages/admin/admin_documentreview.html";
         };
     }
 
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await updateDoc(doc(db, "students", studentId), { status: "approved" });
             showToast("Student approved!");
             await new Promise(r => setTimeout(r, 1200));
-            window.location.href = "../../pages/admin/admin_documentreview.html";
+            window.location.href = "../pages/admin/admin_documentreview.html";
         });
     };
 
