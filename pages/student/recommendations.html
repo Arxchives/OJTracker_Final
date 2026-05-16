@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="/css/recommendations.css">
+    <link rel="stylesheet" href="../../css/recommendations.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 </head>
 
@@ -18,17 +18,17 @@
 
         <div class="sidebar-logo">
             <div class="logo-badge">
-                <img src="/assets/images/BFP.jpg" alt="BFP Logo">
+                <img src="../../assets/images/BFP.jpg" alt="BFP Logo">
             </div>
 
             <span>OJT Portal</span>
         </div>
 
         <nav class="sidebar-nav">
-            <a class="nav-item" href="/pages/student/dashboard.html">Dashboard</a>
-            <a class="nav-item" href="/pages/student/announcement.html">Announcements</a>
-            <a class="nav-item" href="/pages/student/calender.html">Calendar &amp; Time</a>
-            <a class="nav-item active" href="/pages/student/recommendations.html">My Office</a>
+            <a class="nav-item" href="dashboard.html">Dashboard</a>
+            <a class="nav-item" href="announcement.html">Announcements</a>
+            <a class="nav-item" href="calender.html">Calendar &amp; Time</a>
+            <a class="nav-item active" href="recommendations.html">My Office</a>
         </nav>
 
         <div class="sidebar-footer">
@@ -70,7 +70,7 @@
         <div class="office-hero">
             <div class="office-hero-left">
                 <div class="office-badge">
-                    <img src="/assets/images/BFP.jpg" alt="BFP">
+                    <img src="../../assets/images/BFP.jpg" alt="BFP">
                 </div>
                 <div class="office-info">
                     <h2 class="office-name">Bureau of Fire Protection</h2>
@@ -298,7 +298,7 @@
         </div>
     </main>
     <script type="module">
-        import { auth, db } from "/js/firebase.js";
+        import { auth, db } from "../../js/firebase.js";
         import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
         import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
@@ -324,7 +324,7 @@
             logoutModal.style.display = "none";
         });
         document.getElementById("confirmLogout").addEventListener("click", () => {
-            window.location.href = "/index.html";
+            window.location.href = "../../index.html";
         });
     </script>
 </body>
