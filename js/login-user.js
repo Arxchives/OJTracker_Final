@@ -65,24 +65,24 @@ loginForm.addEventListener("submit", async (e) => {
     // ✅ Check admin first
     const adminSnap = await getDoc(doc(db, "admins", user.uid));
     if (adminSnap.exists()) {
-      window.location.href = "/pages/admin/admin_dashboard.html";
+      window.location.href = "pages/admin/admin_dashboard.html";
       return;
     }
 
     // ✅ Check student status
     const studentSnap = await getDoc(doc(db, "students", user.uid));
     if (!studentSnap.exists()) {
-      window.location.href = "/pages/student/pending.html";
+      window.location.href = "pages/student/pending.html";
       return;
     }
 
     const status = studentSnap.data().status;
     if (status === "approved") {
-      window.location.href = "/pages/student/dashboard.html";
+      window.location.href = "pages/student/dashboard.html";
     } else if (status === "rejected") {
-      window.location.href = "/pages/student/rejected.html";
+      window.location.href = "pages/student/rejected.html";
     } else {
-      window.location.href = "/pages/student/pending.html";
+      window.location.href = "pages/student/pending.html";
     }
 
   } catch (error) {
