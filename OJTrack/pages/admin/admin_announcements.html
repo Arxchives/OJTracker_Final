@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFP OJT Portal | Announcements</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/admin_announcement.css">
+</head>
+
+<body>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-badge">
+                <img src="/assets/images/BFP.jpg" alt="BFP Logo">
+            </div>
+            <div class="sidebar-logo-text">
+                <span class="portal-name">OJT Portal</span>
+                <span class="admin-pill">Admin</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="sidebar-section-label">Overview</div>
+            <a class="nav-item" href="/pages/admin/admin_dashboard.html">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 9 12 2 21 9" />
+                    <path d="M9 22V12h6v10" />
+                    <path d="M3 9v13h18V9" />
+                </svg> Dashboard
+            </a>
+
+            <div class="sidebar-section-label">Management</div>
+            <a class="nav-item" href="/pages/admin/admin_applicants.html">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg> Applicants
+                <span class="nav-badge" id="sidebarBadge"></span>
+            </a>
+            <a class="nav-item" href="/pages/admin/admin_documentreview.html">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                    <rect x="9" y="3" width="6" height="4" rx="1" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                    <line x1="9" y1="16" x2="13" y2="16" />
+                </svg> Document Review
+                <span class="nav-badge doc-badge"></span>
+            </a>
+            <div class="sidebar-section-label">Content</div>
+            <a class="nav-item active" href="/pages/admin/admin_announcements.html">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg> Announcements
+            </a>
+            <a class="nav-item" href="/pages/admin/admin_analytics.html">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                </svg> Analytics
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="admin-profile">
+                <div class="admin-avatar"></div>
+                <div class="admin-info">
+                    <div class="admin-name"></div>
+                    <div class="admin-role">BFP - San Simon Officer</div>
+                </div>
+            </div>
+            <button class="logout-btn">← Log out</button>
+        </div>
+    </aside>
+    <div id="logoutModal"
+        style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;">
+        <div
+            style="background:white;padding:24px;border-radius:16px;width:320px;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+            <h3 style="margin:0 0 8px;font-family:'Sora',sans-serif;font-size:16px;color:#1f2d3d;">Log out</h3>
+            <p style="margin:0 0 20px;font-size:14px;color:#666;">Are you sure you want to log out?</p>
+            <div style="display:flex;justify-content:flex-end;gap:10px;">
+                <button id="cancelLogout"
+                    style="padding:8px 14px;border-radius:10px;border:none;background:#eee;cursor:pointer;font-weight:600;">Cancel</button>
+                <button id="confirmLogout"
+                    style="padding:8px 14px;border-radius:10px;border:none;background:#1a7f72;color:white;cursor:pointer;font-weight:600;">Log
+                    out</button>
+            </div>
+        </div>
+    </div>
+    <!-- ── MAIN ── -->
+    <main class="main">
+        <div class="top-header">
+            <div>
+                <div class="page-label">Content</div>
+                <div class="page-title">Announcements</div>
+            </div>
+            <div class="header-right">
+                <div class="datetime-box">
+                    <div class="datetime-date" id="dateDisplay"></div>
+                    <div class="datetime-time" id="timeDisplay"></div>
+                </div>
+                <button class="primary-btn" onclick="openCreateModal()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    New Announcement
+                </button>
+            </div>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="stats-grid" id="statsGrid">
+            <!-- injected by JS -->
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input class="search-input" id="searchInput" type="text" placeholder="Search title or office…"
+                    oninput="renderTable()" />
+            </div>
+            <select class="filter-select" id="officeFilter" onchange="renderTable()">
+                <option value="">Bureau of Fire Protection - San Simon</option>
+            </select>
+            <select class="filter-select" id="statusFilter" onchange="renderTable()">
+                <option value="">All Status</option>
+                <option>Active</option>
+                <option>Draft</option>
+                <option>Archived</option>
+            </select>
+            <span class="toolbar-count" id="rowCount"></span>
+        </div>
+
+        <!-- Table -->
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-title">All Announcements</span>
+                <span id="pinnedNote" style="font-size:.78rem;color:var(--gold);font-weight:600;display:none;">
+                    📌 Pinned items appear first
+                </span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:36px;padding-left:1.25rem;"></th>
+                        <th>Title &amp; Preview</th>
+                        <th>Office</th>
+                        <th>Deadline</th>
+                        <th class="th-center">Status</th>
+                        <th style="text-align:right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+            <div id="emptyState" class="empty-state" style="display:none;">
+                <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg></div>
+                <div class="empty-title">No announcements found</div>
+                <div class="empty-sub">Adjust or create a new announcement.</div>
+            </div>
+            <div class="pagination">
+                <span id="paginationInfo"></span>
+                <div class="page-btns"><button class="page-btn active">1</button></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ── CREATE / EDIT MODAL ── -->
+    <div class="modal-overlay" id="formModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">New Announcement</span>
+                <button class="modal-close" onclick="closeFormModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row" id="row-title">
+                    <div class="field-meta">
+                        <label class="form-label" style="margin:0">Title <span>*</span></label>
+                        <span class="char-count" id="titleCount">0 / 100</span>
+                    </div>
+                    <input class="form-input" id="field-title" type="text" maxlength="100"
+                        placeholder="Enter announcement title…"
+                        oninput="updateCharCount('field-title','titleCount',100)" />
+                    <div class="form-error" id="err-title">Title is required.</div>
+                </div>
+
+                <div class="form-row" id="row-body">
+                    <div class="field-meta">
+                        <label class="form-label" style="margin:0">Message / Description</label>
+                        <span class="char-count" id="bodyCount">0 / 500</span>
+                    </div>
+                    <textarea class="form-textarea" id="field-body" maxlength="500"
+                        placeholder="Write the announcement details…"
+                        oninput="updateCharCount('field-body','bodyCount',500)"></textarea>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-row" id="row-office" style="margin-bottom:0">
+                        <label class="form-label">Office / Audience <span>*</span></label>
+                        <select class="form-select" id="field-office">
+
+                            <option>Bureau of Fire Protection - San Simon</option>
+                        </select>
+                        <div class="form-error" id="err-office">Please select an office.</div>
+                    </div>
+                    <div class="form-row" id="row-status" style="margin-bottom:0">
+                        <label class="form-label">Status <span>*</span></label>
+                        <select class="form-select" id="field-status">
+                            <option value="Active">Active</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Archived">Archived</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row-2" style="margin-top:1.1rem;">
+                    <div class="form-row" id="row-deadline" style="margin-bottom:0">
+                        <label class="form-label">Deadline <span>*</span></label>
+                        <input class="form-input" id="field-deadline" type="date" />
+                        <div class="form-error" id="err-deadline">Deadline is required.</div>
+                    </div>
+                    <div style="display:flex;align-items:flex-end;padding-bottom:.05rem;">
+                        <label class="pin-toggle-wrap" id="pinToggleWrap">
+                            <input type="checkbox" id="field-pin" />
+                            <div class="pin-toggle-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </div>
+                            <span class="pin-toggle-label">📌 Pin to top</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" onclick="closeFormModal()">Cancel</button>
+                <button class="save-btn" id="saveBtn" onclick="saveAnnouncement()">Create Announcement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── DELETE CONFIRM MODAL ── -->
+    <div class="modal-overlay" id="delModal">
+        <div class="modal del-modal">
+            <div class="del-modal-body">
+                <div class="del-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                        <path d="M10 11v6" />
+                        <path d="M14 11v6" />
+                        <path d="M9 6V4h6v2" />
+                    </svg>
+                </div>
+                <div class="del-modal-title">Delete Announcement?</div>
+                <div class="del-modal-msg" id="delModalMsg">This action cannot be undone.</div>
+            </div>
+            <div class="modal-footer" style="justify-content:center;gap:.75rem;">
+                <button class="cancel-btn" onclick="cancelDelete()">Cancel</button>
+                <button class="del-btn" onclick="confirmDelete()">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-wrap" id="toastWrap"></div>
+
+    <script type="module" src="/js/admin_announcements.js"></script>
+    <script type="module" src="/js/components/admin_badge_notifier.js"></script>
+    <script type="module" src="/js/admin_profile.js"></script>
+</body>
+
+</html>

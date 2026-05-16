@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFP OJT Portal | Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="logo-badge">
+    <img src="/assets/images/BFP.jpg" alt="BFP Logo">
+</div>
+        <span class="logo-name">OJT Portal</span>
+        <a class="back-link" href="/index.html">← Back to sign in</a>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+        <div class="progress-bar">
+
+            <div class="prog-step">
+                <div class="prog-circle active" id="pc1">1</div>
+                <span class="prog-label active" id="pl1">Personal Info</span>
+            </div>
+
+            <div class="prog-line" id="line1"></div>
+
+            <div class="prog-step">
+                <div class="prog-circle" id="pc2">2</div>
+                <span class="prog-label" id="pl2">School Details</span>
+            </div>
+
+            <div class="prog-line" id="line2"></div>
+
+            <div class="prog-step">
+                <div class="prog-circle" id="pc3">3</div>
+                <span class="prog-label" id="pl3">Documents</span>
+            </div>
+
+            <div class="prog-line" id="line3"></div>
+
+            <div class="prog-step">
+                <div class="prog-circle" id="pc4">4</div>
+                <span class="prog-label" id="pl4">Department</span>
+            </div>
+
+            <div class="prog-line" id="line4"></div>
+
+            <div class="prog-step">
+                <div class="prog-circle" id="pc5">5</div>
+                <span class="prog-label" id="pl5">Review</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="page-body">
+
+        <!-- LEFT SIDE -->
+        <div class="form-side">
+
+            <div class="form-header">
+                <h1 class="page-heading">OJT Application</h1>
+                <p class="page-sub" id="formSub">
+                    Step 1 of 5 — Fill out your personal details to get started.
+                </p>
+            </div>
+
+            <!-- FORM -->
+            <form id="signupForm">
+
+                <div class="form-viewport">
+
+                    <!-- STEP 1 -->
+                    <div class="form-slide active" id="slide1">
+
+                        <div class="card">
+
+                            <div class="section-title">
+                                Personal Information
+                            </div>
+
+                            <div class="form-grid three">
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        First Name <span class="required">*</span>
+                                    </label>
+
+                                    <input id="firstName" class="form-input" type="text" placeholder="Juan" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Middle Name
+                                    </label>
+
+                                    <input id="middleName" class="form-input" type="text" placeholder="dela" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Last Name <span class="required">*</span>
+                                    </label>
+
+                                    <input id="lastName" class="form-input" type="text" placeholder="Cruz" />
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Date of Birth <span class="required">*</span>
+                                    </label>
+
+                                    <input id="birthDate" class="form-input" type="date" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Sex <span class="required">*</span>
+                                    </label>
+
+                                    <div class="select-wrap">
+
+                                        <select id="sex" class="form-select">
+                                            <option value="">Select</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Contact Number <span class="required">*</span>
+                                    </label>
+
+                                    <input id="contactNumber" class="form-input" type="tel" placeholder="09XXXXXXXXX" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Email Address <span class="required">*</span>
+                                    </label>
+
+                                    <input id="email" class="form-input" type="email" placeholder="you@school.edu.ph" />
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid full">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Complete Address <span class="required">*</span>
+                                    </label>
+
+                                    <input id="address" class="form-input" type="text"
+                                        placeholder="House no., Street, Barangay, Municipality, Province" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Password <span class="required">*</span>
+                                    </label>
+
+                                    <input id="password" class="form-input" type="password"
+                                        placeholder="Create a password" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Confirm Password <span class="required">*</span>
+                                    </label>
+
+                                    <input id="confirmPassword" class="form-input" type="password"
+                                        placeholder="Repeat password" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="btn-row">
+
+                                <span></span>
+
+                                <button type="button" class="btn-next" onclick="goNext()">
+                                    Next: School Details →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-slide" id="slide2">
+
+                        <div class="card">
+
+                            <div class="section-title">
+                                School & Course Details
+                            </div>
+
+                            <div class="form-grid full">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        School / University <span class="required">*</span>
+                                    </label>
+
+                                    <input id="school" class="form-input" type="text"
+                                        value="Pampanga State University" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Campus / Branch
+                                    </label>
+
+                                    <input id="campus" class="form-input" type="text" placeholder="e.g. Main Campus" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        College / Department <span class="required">*</span>
+                                    </label>
+
+                                    <input id="college" class="form-input" type="text"
+                                        placeholder="e.g. College of Business" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Course / Program <span class="required">*</span>
+                                    </label>
+
+                                    <input id="course" class="form-input" type="text"
+                                        placeholder="e.g. BS Public Administration" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Year Level <span class="required">*</span>
+                                    </label>
+
+                                    <div class="select-wrap">
+
+                                        <select id="yearLevel" class="form-select">
+                                            <option value="">Select year level</option>
+                                            <option>3rd Year</option>
+                                            <option>4th Year</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Student ID Number <span class="required">*</span>
+                                    </label>
+
+                                    <input id="studentId" class="form-input" type="text"
+                                        placeholder="e.g. 2021-00123" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Academic Year & Semester <span class="required">*</span>
+                                    </label>
+
+                                    <input id="academicYear" class="form-input" type="text"
+                                        placeholder="e.g. 2025–2026, 2nd Sem" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="section-title" style="margin-top:.2rem;">
+                                OJT Requirements
+                            </div>
+
+                            <div class="form-grid three">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Required OJT Hours <span class="required">*</span>
+                                    </label>
+
+                                    <input id="requiredHours" class="form-input" type="number" placeholder="e.g. 486" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Target Start Date <span class="required">*</span>
+                                    </label>
+
+                                    <input id="targetStart" class="form-input" type="date" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Target End Date <span class="required">*</span>
+                                    </label>
+
+                                    <input id="targetEnd" class="form-input" type="date" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Adviser Name <span class="required">*</span>
+                                    </label>
+
+                                    <input id="adviserName" class="form-input" type="text"
+                                        placeholder="School OJT coordinator" />
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Adviser Contact / Email
+                                    </label>
+
+                                    <input id="adviserContact" class="form-input" type="text"
+                                        placeholder="adviser@school.edu.ph" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="btn-row">
+
+                                <button type="button" class="btn-back" onclick="goBack()">
+                                    ← Back
+                                </button>
+
+                                <button type="button" class="btn-next" onclick="goNext()">
+                                    Next: Documents →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-slide" id="slide3">
+
+                        <div class="card">
+
+                            <div class="section-title">
+                                Required Documents
+                            </div>
+
+                            <p style="font-size:.83rem;color:var(--gray-500);margin-bottom:1.2rem;line-height:1.6;">
+                                Upload scanned copies or clear photos. Accepted: PDF, JPG, PNG (max 5MB each).
+                            </p>
+
+                            <div class="form-grid full" style="gap:.85rem;">
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Valid ID
+                                    </label>
+                                    <input id="validIdFile" class="form-input" type="file" accept=".pdf,.jpg,.png" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Medical Certificate
+                                    </label>
+                                    <input id="medicalFile" class="form-input" type="file" accept=".pdf,.jpg,.png" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        MOA
+                                    </label>
+                                    <input id="moaFile" class="form-input" type="file" accept=".pdf,.jpg,.png" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Resume
+                                    </label>
+                                    <input id="resumeFile" class="form-input" type="file" accept=".pdf,.jpg,.png" />
+                                </div>
+
+                            </div>
+
+                            <div class="btn-row">
+
+                                <button type="button" class="btn-back" onclick="goBack()">
+                                    ← Back
+                                </button>
+
+                                <button type="button" class="btn-next" onclick="goNext()">
+                                    Next: Department →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="form-slide" id="slide4">
+
+                        <div class="card">
+
+                            <div class="section-title">
+                                Select Preferred Department / Office
+                            </div>
+
+                            <div class="dept-grid" id="deptGrid">
+
+                                <div class="dept-card selected" data-dept="Bureau of Fire Protection - San Simon">
+                                    <div class="dept-name">Bureau of Fire Protection</div>
+                                    <div class="dept-desc">
+                                        San Simon Fire Station
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="section-title">
+                                Schedule Preference
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Preferred Work Days
+                                    </label>
+
+                                    <div class="select-wrap">
+
+                                        <select id="workDays" class="form-select">
+                                            <option>Monday – Friday</option>
+                                            <option>Monday – Saturday</option>
+                                            <option>Flexible</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Preferred Time In
+                                    </label>
+
+                                    <div class="select-wrap">
+
+                                        <select id="preferredTime" class="form-select">
+                                            <option>8:00 AM</option>
+                                            <option>7:00 AM</option>
+                                            <option>9:00 AM</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid full">
+
+                                <div class="form-group">
+
+                                    <label class="form-label">
+                                        Additional Notes
+                                    </label>
+
+                                    <textarea id="notes" class="form-input" style="resize:vertical;min-height:75px;"
+                                        placeholder="Any notes for the HR department..."></textarea>
+
+                                </div>
+
+                            </div>
+
+                            <div class="btn-row">
+
+                                <button type="button" class="btn-back" onclick="goBack()">
+                                    ← Back
+                                </button>
+
+                                <button type="button" class="btn-next" onclick="goNext()">
+                                    Next: Review →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="form-slide" id="slide5">
+
+                        <div class="card">
+
+                            <div class="section-title">
+                                Review & Submit
+                            </div>
+
+                            <p style="font-size:.83rem;color:var(--gray-500);margin-bottom:1.4rem;line-height:1.6;">
+                                Review your application before submitting.
+                            </p>
+
+                            <div
+                                style="background:var(--teal-pale);border:1px solid rgba(26,127,114,.18);border-radius:8px;padding:.85rem 1rem;margin-bottom:1.4rem;font-size:.8rem;color:var(--teal);line-height:1.55;">
+                                By submitting, you confirm that all information is accurate.
+                            </div>
+                            <div id="reviewContainer" class="review-container"></div>
+                            <div class="btn-row">
+
+                                <button type="button" class="btn-back" onclick="goBack()">
+                                    ← Back
+                                </button>
+
+                                <button id="submitBtn" type="submit" class="btn-next" style="padding:.66rem 1.8rem;">
+                                    Submit Application ✓
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="info-panel">
+
+            <div class="panel-content visible" id="panel1">
+                <div class="panel-step-label">Step 1 of 5</div>
+                <div class="panel-title">Personal Information</div>
+            </div>
+
+            <div class="panel-content" id="panel2">
+                <div class="panel-step-label">Step 2 of 5</div>
+                <div class="panel-title">School Details</div>
+            </div>
+
+            <div class="panel-content" id="panel3">
+                <div class="panel-step-label">Step 3 of 5</div>
+                <div class="panel-title">Documents</div>
+            </div>
+
+            <div class="panel-content" id="panel4">
+                <div class="panel-step-label">Step 4 of 5</div>
+                <div class="panel-title">Department</div>
+            </div>
+
+            <div class="panel-content" id="panel5">
+                <div class="panel-step-label">Step 5 of 5</div>
+                <div class="panel-title">Review</div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="fileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreview()">&times;</span>
+
+            <div id="filePreviewContainer"></div>
+        </div>
+    </div>
+    <div id="globalStatus" class="hidden status-overlay">
+        <div class="status-box">
+            <p id="statusText">Processing...</p>
+        </div>
+    </div>
+    <script type="module" src="/js/signup.js"></script>
+    <div id="successModal"
+        style="display:none; position:fixed; inset:0; background:rgba(28,42,58,.55); z-index:9999; align-items:center; justify-content:center;">
+        <div
+            style="background:#fff; border-radius:16px; padding:2.5rem 2rem; max-width:380px; width:90%; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,.15);">
+            <div
+                style="width:56px; height:56px; background:#e6f4f1; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem;">
+                <svg width="28" height="28" fill="none" stroke="#1a7f72" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+            </div>
+            <h2
+                style="font-family:'Sora',sans-serif; font-size:1.2rem; font-weight:700; color:#1c2a3a; margin-bottom:.6rem;">
+                Application Submitted!</h2>
+            <p style="font-size:.9rem; color:#7a8898; line-height:1.6; margin-bottom:1.75rem;">Log in to your account to
+                view your application status and track your progress.</p>
+            <button onclick="window.location.href='/index.html'"
+                style="width:100%; padding:.85rem; background:#1a7f72; color:#fff; border:none; border-radius:10px; font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:600; cursor:pointer;">Go
+                to Login</button>
+        </div>
+    </div>
+</body>
+<div id="notif-container" class="notif-container"></div>
+
+</html>
