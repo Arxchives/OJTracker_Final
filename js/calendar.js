@@ -232,5 +232,5 @@ document.getElementById('cancelLogout').addEventListener('click', () => {
     document.getElementById('logoutModal').style.display = 'none';
 });
 document.getElementById('confirmLogout').addEventListener('click', () => {
-    window.location.href = '/index.html';
+    window.location.href = '../index.html';
 });

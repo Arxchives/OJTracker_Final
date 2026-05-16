@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     onAuthStateChanged(auth, (user) => {
         if (!user) {
-            window.location.href = "/index.html";
+            window.location.href = "../index.html";
             return;
         }
         listenStudents();
@@ -114,7 +114,7 @@ function renderTable(data = null) {
         <td>${a.submissionDeadline ? `<span style="color:#92400e;font-weight:600;">📅 ${a.submissionDeadline}</span>` : "—"}</td>
         <td>${normalize(a.status) === "for_submission" ? "For Submission" : normalize(a.status)}</td>
         <td style="text-align:right;">
-            <a href="/pages/admin/admin_student_review.html?id=${a.id}" style="color:#1a7f72;font-weight:600;text-decoration:none;">View →</a>
+            <a href="../pages/admin/admin_student_review.html?id=${a.id}" style="color:#1a7f72;font-weight:600;text-decoration:none;">View →</a>
         </td>
     </tr>
 `).join("");
@@ -183,5 +183,5 @@ document.getElementById('cancelLogout')?.addEventListener("click", () => {
     document.getElementById('logoutModal').style.display = 'none';
 });
 document.getElementById('confirmLogout')?.addEventListener("click", () => {
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
 });
